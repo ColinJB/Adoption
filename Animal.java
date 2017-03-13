@@ -25,9 +25,9 @@ class Animal {
 
   public boolean insidePet(String userChoice) {
     if ( mSpecies.equals("rabbit") || mSpecies.equals("cat") ) {
-      return (userChoice.equals("inside"));
+      return (userChoice.equals("Inside"));
     } else {
-      return (userChoice.equals("outside"));
+      return (userChoice.equals("Outside"));
     }
   }
 }
