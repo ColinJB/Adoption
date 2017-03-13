@@ -4,26 +4,9 @@ public class App {
   public static void main(String[] args) {
     Console userConsole = System.console();
 
-    Animal dog = new Animal();
-      dog.mSpecies = "dog";
-      dog.mSex = "male";
-      dog.mAge = 7;
-      dog.mColor = "black";
-      dog.mName = "Willie";
-
-    Animal cat = new Animal();
-      cat.mSpecies = "cat";
-      cat.mSex = "female";
-      cat.mAge = 2;
-      cat.mColor = "white";
-      cat.mName = "Mittens";
-
-    Animal rabbit = new Animal();
-      rabbit.mSpecies = "rabbit";
-      rabbit.mSex = "male";
-      rabbit.mAge = 1;
-      rabbit.mColor = "gray";
-      rabbit.mName = "Thumper";
+    Animal dog = new Animal("dog", "male", 7, "black", "Willie", true);
+    Animal cat = new Animal("cat", "female", 2, "white", "Mittens", false);
+    Animal rabbit = new Animal("rabbit", "male", 1, "gray", "Thumper", true);
 
     Animal[] allAnimals = {dog, cat, rabbit};
 
@@ -33,6 +16,11 @@ public class App {
     System.out.println("Available Animals:");
 
     for ( Animal individualAnimal : allAnimals ) {
+      if ( individualAnimal.mAge > 1 ) {
+        individualAnimal.adoptStatus();
+      }
+    }
+    for ( Animal individualAnimal : allAnimals ) {
       if (individualAnimal.insidePet(userChoice)) {
         System.out.println("-------------");
         System.out.println( individualAnimal.mName );
@@ -40,6 +28,7 @@ public class App {
         System.out.println( individualAnimal.mSex );
         System.out.println( individualAnimal.mAge );
         System.out.println( individualAnimal.mColor );
+        System.out.println( individualAnimal.mAdopted);
       }
     }
   }
